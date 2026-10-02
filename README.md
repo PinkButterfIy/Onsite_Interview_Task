@@ -25,15 +25,17 @@ API: https://jwstapi.com
 - Ensure Flutter is Installed and Configured
 - Clone the repositry
 - Navigate to the project directory `cd PROJECT_DIR`
+- Head to [JWST API](https://jwstapi.com/#) and request an API key
+- Run `flutter clean` to clean any cached builds
 - Run `flutter pub get` to install dependencies
-- Run `flutter run` to start the program
+- Run `flutter run --dart-define=JWST_API_KEY=<your-api-key>` to start the program
 
 ### Design
 The data is loaded by page, using the API call shown in the JWST API Documentation. This pagination is to reduce the amount of data being requested at a time.
 Checks are made to determine whether there is an ongoing API request, to eliminate the possibility of simultaneous requests and reduce network usage.
 Infinite scrolling is implemented so that as the user reaches the bottom of the page, another request is made to load the next page of data. 
 Flutters `GridView.builder()` handles the generation and destruction of on/off screen tiles allowing for a balanced load.
-
+A final touch after deciding to post to Github was to remove the hard-coded API key, this was done by adding `String.fromEnvironment()` to the script to store information contained within the `--dart-define=....` section of the run command
 
 
 ### Credits/Acknowledgements
