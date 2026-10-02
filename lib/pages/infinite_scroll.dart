@@ -91,8 +91,6 @@ class InfiniteScrollPageState extends State<InfiniteScrollPage> {
           itemBuilder: (BuildContext context, int index) {
             return Padding(
               padding: EdgeInsets.all(5),
-
-              ///for fun mostly, added functionality to the images so descriptions were given
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.zero,
