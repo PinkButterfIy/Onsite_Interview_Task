@@ -14,7 +14,7 @@ class InfiniteScrollPageState extends State<InfiniteScrollPage> {
   int currentPage = 1;
   ScrollController scrollController = ScrollController();
   bool isLoading = false;
- 
+
   static const String jwstApiKey =String.fromEnvironment('JWST_API_KEY');
 
   @override
