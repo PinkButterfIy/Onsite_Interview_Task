@@ -15,6 +15,8 @@ class InfiniteScrollPageState extends State<InfiniteScrollPage> {
   ScrollController scrollController = ScrollController();
   bool isLoading = false;
  
+  static const String jwstApiKey =String.fromEnvironment('JWST_API_KEY');
+
   @override
   void initState() {
     super.initState();
@@ -45,7 +47,7 @@ class InfiniteScrollPageState extends State<InfiniteScrollPage> {
       //calling the API with the added header of the API Key
       final response = await http.get(
         Uri.parse('https://api.jwstapi.com/all/type/jpg?page=$page&perPage=14'),
-        headers: {'X-API-KEY': 'e5ecc611-1818-4806-859c-90fdb3ff7c53'},
+        headers: {'X-API-KEY': jwstApiKey},
       );
       if (response.statusCode == 200) {
         //print("Data Retrieved"); //sanity check
